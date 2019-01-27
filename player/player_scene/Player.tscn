@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://player/player_scripts/player_control.gd" type="Script" id=1]
 [ext_resource path="res://art/characters.png" type="Texture" id=2]
@@ -8,11 +8,19 @@
 [ext_resource path="res://player/body_movement/states/motion/in_air/jump.gd" type="Script" id=6]
 [ext_resource path="res://player/body_movement/states/motion/in_air/fall.gd" type="Script" id=7]
 [ext_resource path="res://player/body_movement/states/combat/stagger.gd" type="Script" id=8]
+[ext_resource path="res://player/body_movement/states/combat/attack.gd" type="Script" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 8.97425, 12.1514 )
+
+[sub_resource type="Animation" id=7]
+
+resource_name = "attack"
+length = 1.0
+loop = false
+step = 0.1
 
 [sub_resource type="Animation" id=2]
 
@@ -112,8 +120,8 @@ tracks/0/keys = {
 [node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 109
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
@@ -126,7 +134,7 @@ __meta__ = {
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 23
-frame = 29
+frame = 24
 _sections_unfolded = [ "Animation" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
@@ -142,6 +150,7 @@ autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/attack = SubResource( 7 )
 anims/fall = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/jump = SubResource( 4 )
@@ -151,6 +160,7 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 
@@ -173,6 +183,10 @@ script = ExtResource( 7 )
 [node name="Stagger" type="Node" parent="StateMachine" index="4"]
 
 script = ExtResource( 8 )
+
+[node name="Attack" type="Node" parent="StateMachine" index="5"]
+
+script = ExtResource( 9 )
 
 [node name="Health" type="Node" parent="." index="4"]
 

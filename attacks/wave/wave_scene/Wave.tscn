@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://attacks/wave/wave_script/wave.gd" type="Script" id=1]
+[ext_resource path="res://art/swoosh.png" type="Texture" id=2]
+
+[node name="Wave" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 16
+collision_mask = 5
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 40, 0, 25, 30 )
+_sections_unfolded = [ "Region" ]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -3.68101, 14.9576, 8.80459, 14.9428, 8.80459, 14.0214, 9.91027, 13.9293, 9.91027, 11.3493, 10.9699, 11.3493, 10.9238, 9.50655, 11.9834, 9.50655, 11.9834, -0.122051, 10.7395, -0.3524, 10.7395, -2.97838, 9.54171, -3.11659, 9.54171, -4.77511, 8.29782, -4.86725, 8.29782, -6.98646, 7.65147, -7.10676, 7.57642, -8.23249, 6.86346, -8.30754, 6.78841, -9.28317, 5.88783, -9.28317, 5.8503, -10.4089, 4.83715, -10.2963, 4.83715, -11.2344, 2.02283, -11.3095, 1.83521, -12.2101, -0.491286, -12.2101, -0.453762, -13.3358, -10.3977, -13.2607, -8.63404, -11.8348, -6.94545, -11.8348, -6.94545, -10.634, -3.00541, -10.634, -3.00541, -8.7203, -0.866529, -8.7203, -0.866529, -7.66963, 0.296722, -7.6321, 0.296722, -6.5439, 1.15978, -6.5439, 1.15153, -4.62882, 2.30328, -4.53668, 2.30328, 3.24913, 1.05939, 3.24913, 1.05939, 7.67184, -0.00021553, 7.62577, 0.0458546, 10.5282, -0.875542, 10.5742, -0.892017, 12.6887, -1.93118, 12.6887, -1.93118, 13.5445, -2.93979, 13.575, -2.90922, 14.5225 )
+
+
