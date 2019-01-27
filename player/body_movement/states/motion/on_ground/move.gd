@@ -1,10 +1,13 @@
 extends "res://player/body_movement/states/motion/on_ground/on_ground.gd"
 
 const MAX_WALKING_SPEED = 150.0
-const WALKING_FORCE = 600.0
+const WALKING_FORCE = 1000.0
+var friction_force = 300.0 setget set_friction
+var total_force = 0.0
 
 func enter():
 	velocity = Vector2()
+	calculate_total_force()
 	handle_animation("walk")
 
 func exit():
@@ -32,7 +35,7 @@ func move(input_direction, delta):
 		emit_signal("finished", "fall")
 
 func calculate_speed(input_direction, delta):
-	var acceleration =  WALKING_FORCE * input_direction.x
+	var acceleration =  total_force * input_direction.x
 	speed += acceleration * delta
 	if  speed > MAX_WALKING_SPEED:
 		speed = MAX_WALKING_SPEED
@@ -41,3 +44,9 @@ func calculate_speed(input_direction, delta):
 
 func handle_animation(ani_name):
 	owner.get_node("AnimationPlayer").play(ani_name)
+
+func calculate_total_force():
+	total_force = WALKING_FORCE - friction_force
+
+func set_friction(new_friction):
+	friction_force = new_friction

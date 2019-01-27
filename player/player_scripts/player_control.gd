@@ -2,7 +2,7 @@ extends KinematicBody2D
 signal direction_changed(new_direction)
 onready var health = $Health
 onready var stagger = $StateMachine/Stagger
-
+onready var move = $StateMachine/Move
 var look_direction = Vector2(1, 0) setget set_look_direction, get_look_direction
 
 func _ready():
