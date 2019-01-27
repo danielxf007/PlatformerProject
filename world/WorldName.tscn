@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="WorldName" type="Node2D" index="0"]
+[node name="WorldName" type="Node2D"]
 
 [node name="Environment" type="Node" parent="." index="0"]
 

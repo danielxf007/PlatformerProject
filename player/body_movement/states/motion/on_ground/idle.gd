@@ -5,7 +5,7 @@ func enter():
 	handle_animation("idle")
 
 func exit():
-	velocity = null
+	velocity = Vector2(0, 1)
 
 func handle_input(event):
 	return .handle_input(event)
@@ -14,8 +14,8 @@ func update(delta):
 	var input_direction = get_input_direction()
 	if input_direction:
 		emit_signal("finished", "move")
-	velocity.y = direction.y * GRAVITY
-	owner.move_and_slide(velocity, FLOOR_NORMAl)
+	velocity.y = GRAVITY
+	owner.move_and_slide(velocity, FLOOR_NORMAL)
 	if not owner.is_on_floor():
 		emit_signal("finished", "fall")
 

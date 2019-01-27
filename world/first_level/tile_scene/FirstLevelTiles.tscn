@@ -52,7 +52,9 @@ extents = Vector2( 8.02473, 8.03928 )
 custom_solver_bias = 0.0
 extents = Vector2( 8.06853, 8.04187 )
 
-[node name="FirstLevelTiles" type="Node" index="0"]
+[node name="FirstLevelTiles" type="Node"]
+
+editor/display_folded = true
 
 [node name="FloorOne" type="Sprite" parent="." index="0"]
 

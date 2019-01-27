@@ -27,7 +27,6 @@ func set_dead(value):
 func set_look_direction(value):
 	look_direction = value
 	$Body.flip_h = value.x < 0
-	$Weapons/Weapon.flip_h = value.x < 0
 	emit_signal("direction_changed", value)
 
 func get_look_direction():
