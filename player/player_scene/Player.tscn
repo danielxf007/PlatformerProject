@@ -109,13 +109,14 @@ tracks/0/keys = {
 "values": [ 37, 38, 39, 40, 37, 38, 39, 40 ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_group_": true
 }
@@ -150,7 +151,6 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
-editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 
