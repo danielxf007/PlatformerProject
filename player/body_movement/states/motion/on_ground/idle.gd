@@ -1,15 +1,22 @@
 extends "res://player/body_movement/states/motion/on_ground/on_ground.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+func enter():
+	velocity = Vector2()
+	handle_animation("idle")
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+func exit():
+	velocity = null
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func handle_input(event):
+	return .handle_input(event)
+
+func update(delta):
+	var input_direction = get_input_direction()
+	if input_direction:
+		emit_signal("finished", "move")
+	velocity.y = direction.y * GRAVITY
+	velocity.x = direction.x * speed
+	owner.move_and_slide(velocity, FLOOR_NORMAl)
+
+func handle_animation(ani_name):
+	owner.get_node("AnimationPlayer").play(ani_name)

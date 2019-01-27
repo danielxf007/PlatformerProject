@@ -2,8 +2,7 @@ extends "res://player/body_movement/states/motion/motion.gd"
 
 const GRAVITY = 300.0
 const FLOOR_NORMAl = Vector2(0, -1)
-const WALKING_FORCE = 600.0
-var direction = Vector2(0, 1) setget set_direction, get_direction
+var direction = null setget set_direction, get_direction
 var speed = 0.0
 var velocity
 
