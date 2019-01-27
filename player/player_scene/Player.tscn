@@ -1,0 +1,177 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://player/player_scripts/player_control.gd" type="Script" id=1]
+[ext_resource path="res://art/characters.png" type="Texture" id=2]
+[ext_resource path="res://player/body_movement/state_machine/player_body_state_machine.gd" type="Script" id=3]
+[ext_resource path="res://player/body_movement/states/motion/on_ground/idle.gd" type="Script" id=4]
+[ext_resource path="res://player/body_movement/states/motion/on_ground/move.gd" type="Script" id=5]
+[ext_resource path="res://player/body_movement/states/motion/in_air/jump.gd" type="Script" id=6]
+[ext_resource path="res://player/body_movement/states/motion/in_air/fall.gd" type="Script" id=7]
+[ext_resource path="res://player/body_movement/states/combat/stagger.gd" type="Script" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 8.97425, 12.1514 )
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "fall"
+length = 0.01
+loop = false
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 29 ]
+}
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "idle"
+length = 1.0
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 23, 24, 25, 26, 24, 23 ]
+}
+
+[sub_resource type="Animation" id=4]
+
+resource_name = "jump"
+length = 0.2
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 27, 28 ]
+}
+
+[sub_resource type="Animation" id=5]
+
+resource_name = "stagger"
+length = 0.12
+loop = true
+step = 0.02
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.04, 0.06, 0.08, 0.1, 0.12 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 26, 73, 26, 73, 26, 73, 26 ]
+}
+
+[sub_resource type="Animation" id=6]
+
+resource_name = "walk"
+length = 1.4
+loop = true
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 37, 38, 39, 40, 37, 38, 39, 40 ]
+}
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Body" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+vframes = 4
+hframes = 23
+frame = 29
+_sections_unfolded = [ "Animation" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.732712, 4.71033 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/fall = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/jump = SubResource( 4 )
+anims/stagger = SubResource( 5 )
+anims/walk = SubResource( 6 )
+blend_times = [  ]
+
+[node name="StateMachine" type="Node" parent="." index="3"]
+
+editor/display_folded = true
+script = ExtResource( 3 )
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" index="0"]
+
+script = ExtResource( 4 )
+
+[node name="Move" type="Node" parent="StateMachine" index="1"]
+
+script = ExtResource( 5 )
+
+[node name="Jump" type="Node" parent="StateMachine" index="2"]
+
+script = ExtResource( 6 )
+
+[node name="Fall" type="Node" parent="StateMachine" index="3"]
+
+script = ExtResource( 7 )
+
+[node name="Stagger" type="Node" parent="StateMachine" index="4"]
+
+script = ExtResource( 8 )
+
+
