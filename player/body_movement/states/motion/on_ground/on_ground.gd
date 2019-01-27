@@ -1,0 +1,18 @@
+extends "res://player/body_movement/states/motion/motion.gd"
+
+const GRAVITY = 300.0
+const FLOOR_NORMAl = Vector2(0, -1)
+const WALKING_FORCE = 600.0
+var direction = Vector2(0, 1) setget set_direction, get_direction
+var speed = 0.0
+var velocity
+
+func handle_input(event):
+	if event.is_action_pressed("jump"):
+		emit_signal("finished", "jump")
+
+func set_direction(new_direction):
+	direction = new_direction
+
+func get_direction():
+	return direction
