@@ -14,6 +14,8 @@ func _change_state(state_name):
 	if not _active:
 		return
 	if state_name in ["jump", "fall", "stagger", "climb"]:
+		while states_stack.size() > 1:
+			states_stack.pop_front()
 		states_stack.push_front(states_map[state_name])
 	._change_state(state_name)
 
