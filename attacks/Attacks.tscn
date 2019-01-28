@@ -3,7 +3,7 @@
 [ext_resource path="res://attacks/state_machine/attacks_state_machine.gd" type="Script" id=1]
 [ext_resource path="res://attacks/states/wave.gd" type="Script" id=2]
 
-[node name="Attacks" type="Node2D" index="0"]
+[node name="Attacks" type="Node2D"]
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
