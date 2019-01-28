@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://attacks/state_machine/attacks_state_machine.gd" type="Script" id=1]
 [ext_resource path="res://attacks/states/wave.gd" type="Script" id=2]
+[ext_resource path="res://attacks/states/fire_ball.gd" type="Script" id=3]
+[ext_resource path="res://attacks/states/blue_fire_ball.gd" type="Script" id=4]
 
 [node name="Attacks" type="Node2D"]
 
@@ -18,6 +20,28 @@ script = ExtResource( 2 )
 
 process_mode = 1
 wait_time = 2.0
+one_shot = true
+autostart = false
+
+[node name="Flame" type="Node" parent="StateMachine" index="1"]
+
+script = ExtResource( 3 )
+
+[node name="CoolDownTimer" type="Timer" parent="StateMachine/Flame" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="BlueFlame" type="Node" parent="StateMachine" index="2"]
+
+script = ExtResource( 4 )
+
+[node name="CoolDownTimer" type="Timer" parent="StateMachine/BlueFlame" index="0"]
+
+process_mode = 1
+wait_time = 1.0
 one_shot = true
 autostart = false
 
