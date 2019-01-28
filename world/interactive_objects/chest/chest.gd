@@ -1,5 +1,5 @@
 extends Node2D
-export(int) var max_number_coins = 20
+export(int) var max_number_coins = 10
 var coins = 0.0
 
 func _ready():

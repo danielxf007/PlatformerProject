@@ -7,6 +7,10 @@
 
 [node name="Attacks" type="Node2D"]
 
+__meta__ = {
+"_edit_group_": true
+}
+
 [node name="StateMachine" type="Node" parent="." index="0"]
 
 script = ExtResource( 1 )

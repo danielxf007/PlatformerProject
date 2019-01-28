@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://player/player_scripts/player_control.gd" type="Script" id=1]
 [ext_resource path="res://art/characters.png" type="Texture" id=2]
@@ -9,7 +9,8 @@
 [ext_resource path="res://player/body_movement/states/motion/in_air/fall.gd" type="Script" id=7]
 [ext_resource path="res://player/body_movement/states/combat/stagger.gd" type="Script" id=8]
 [ext_resource path="res://player/body_movement/states/climb/climb.gd" type="Script" id=9]
-[ext_resource path="res://attacks/Attacks.tscn" type="PackedScene" id=10]
+[ext_resource path="res://player/purse/purse.gd" type="Script" id=10]
+[ext_resource path="res://attacks/Attacks.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -132,7 +133,7 @@ tracks/0/keys = {
 "values": [ 37, 38, 39, 40, 37, 38, 39, 40 ]
 }
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -140,6 +141,9 @@ collision_mask = 109
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Body" type="Sprite" parent="." index="0"]
 
@@ -173,6 +177,7 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 
@@ -204,9 +209,38 @@ script = ExtResource( 9 )
 
 [node name="Purse" type="Node" parent="." index="5"]
 
-[node name="Attacks" parent="." index="6" instance=ExtResource( 10 )]
+script = ExtResource( 10 )
+coins = 0
+
+[node name="Attacks" parent="." index="6" instance=ExtResource( 11 )]
 
 position = Vector2( 17.9909, 4.98834 )
 scale = Vector2( 0.284762, 0.287427 )
+
+[node name="Camera2D" type="Camera2D" parent="." index="7"]
+
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 0.8, 0.8 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = true
+_sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Smoothing" ]
 
 
