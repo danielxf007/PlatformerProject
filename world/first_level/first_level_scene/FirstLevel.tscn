@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://world/WorldName.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/first_level/tiles/first_level_tiles.tres" type="TileSet" id=2]
-[ext_resource path="res://world/interactive_objects/Stairs.tscn" type="PackedScene" id=3]
-[ext_resource path="res://world/interactive_objects/coin/Coin.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world/interactive_objects/chest/Chest.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/moving_platform/MovingPlatform.tscn" type="PackedScene" id=3]
+[ext_resource path="res://world/interactive_objects/Stairs.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/interactive_objects/coin/Coin.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/interactive_objects/chest/Chest.tscn" type="PackedScene" id=6]
 
 [node name="FirstLevel" instance=ExtResource( 1 )]
 
@@ -26,29 +27,44 @@ collision_layer = 1
 collision_mask = 1
 occluder_light_mask = 1
 format = 1
-tile_data = PoolIntArray( 1114115, 3, 0, 1114116, 3, 0, 1114117, 3, 0, 1114118, 3, 0, 1114119, 3, 0, 1114120, 3, 0, 1310722, 3, 0, 1310723, 3, 0, 1310724, 3, 0, 1310725, 3, 0, 1310726, 3, 0, 1310727, 3, 0, 1310728, 3, 0, 1310729, 3, 0, 1310730, 3, 0, 1310731, 3, 0, 1310732, 3, 0, 1310733, 3, 0, 1310734, 3, 0, 1310735, 3, 0, 1310736, 3, 0, 1310737, 3, 0, 1310738, 3, 0, 1310739, 3, 0, 1310740, 3, 0, 1310741, 3, 0, 1310742, 3, 0, 1310743, 3, 0, 1310744, 3, 0 )
+tile_data = PoolIntArray( 655355, 17, 0, 655356, 17, 0, 655357, 17, 0, 655358, 17, 0, 655359, 17, 0, 589824, 17, 0, 786441, 15, 0, 786456, 15, 0, 851977, 15, 0, 851992, 15, 0, 917513, 15, 0, 917528, 15, 0, 983049, 15, 0, 983064, 15, 0, 1048585, 15, 0, 1048600, 15, 0, 1114115, 3, 0, 1114116, 3, 0, 1114117, 3, 0, 1114118, 3, 0, 1114119, 3, 0, 1114120, 3, 0, 1114121, 15, 0, 1114136, 15, 0, 1179672, 15, 0, 1245208, 15, 0, 1376251, 3, 0, 1376252, 3, 0, 1376253, 3, 0, 1376254, 3, 0, 1376255, 3, 0, 1310720, 3, 0, 1310721, 3, 0, 1310722, 3, 0, 1310723, 3, 0, 1310724, 3, 0, 1310725, 3, 0, 1310726, 3, 0, 1310727, 3, 0, 1310728, 3, 0, 1310729, 3, 0, 1310730, 3, 0, 1310731, 3, 0, 1310732, 3, 0, 1310733, 3, 0, 1310734, 3, 0, 1310735, 3, 0, 1310736, 3, 0, 1310737, 3, 0, 1310738, 3, 0, 1310739, 3, 0, 1310740, 3, 0, 1310741, 3, 0, 1310742, 3, 0, 1310743, 3, 0 )
 _sections_unfolded = [ "Cell" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Stairs" parent="InteractiveObjects" index="0" instance=ExtResource( 3 )]
+[node name="MovingPlatform" parent="Environment" index="1" instance=ExtResource( 3 )]
+
+position = Vector2( 288.668, 251.8 )
+SPEED = 50.0
+
+[node name="MovingPlatform2" parent="Environment" index="2" instance=ExtResource( 3 )]
+
+position = Vector2( -28.2377, 260.539 )
+SPEED = 50.0
+horizontal_movement = false
+
+[node name="InteractiveObjects" parent="." index="3"]
+
+editor/display_folded = true
+
+[node name="Stairs" parent="InteractiveObjects" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 40.0788, 284.69 )
 
-[node name="Coin" parent="InteractiveObjects" index="1" instance=ExtResource( 4 )]
+[node name="Coin" parent="InteractiveObjects" index="1" instance=ExtResource( 5 )]
 
 position = Vector2( 277.836, 288.578 )
 
-[node name="Coin2" parent="InteractiveObjects" index="2" instance=ExtResource( 4 )]
+[node name="Coin2" parent="InteractiveObjects" index="2" instance=ExtResource( 5 )]
 
 position = Vector2( 91.3698, 308.715 )
 
-[node name="Coin3" parent="InteractiveObjects" index="3" instance=ExtResource( 4 )]
+[node name="Coin3" parent="InteractiveObjects" index="3" instance=ExtResource( 5 )]
 
 position = Vector2( 228.588, 300.303 )
 
-[node name="Chest" parent="InteractiveObjects" index="4" instance=ExtResource( 5 )]
+[node name="Chest" parent="InteractiveObjects" index="4" instance=ExtResource( 6 )]
 
 position = Vector2( 94.2152, 262.473 )
 

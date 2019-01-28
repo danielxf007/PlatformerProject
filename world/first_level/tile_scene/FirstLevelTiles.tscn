@@ -54,8 +54,6 @@ extents = Vector2( 8.06853, 8.04187 )
 
 [node name="FirstLevelTiles" type="Node"]
 
-editor/display_folded = true
-
 [node name="FloorOne" type="Sprite" parent="." index="0"]
 
 texture = ExtResource( 1 )
@@ -286,15 +284,15 @@ polygon = PoolVector2Array( -6.32084, -8.01277, 6.08032, -8.00953, 8.00583, -5.9
 
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 160, 16, 16, 16 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 161, 14, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="WallOneC" type="Sprite" parent="." index="15"]
 
 editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 160, 16, 16, 16 )
+region_rect = Rect2( 161, 14, 16, 16 )
 _sections_unfolded = [ "Region", "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -318,15 +316,15 @@ shape = SubResource( 7 )
 
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 176, 16, 16, 16 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 176, 13, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="BlackBrickC" type="Sprite" parent="." index="17"]
 
 editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 176, 16, 16, 16 )
+region_rect = Rect2( 176, 13, 16, 16 )
 _sections_unfolded = [ "Region", "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -350,15 +348,15 @@ shape = SubResource( 8 )
 
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 192, 16, 16, 16 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 191, 14, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="WallTwoC" type="Sprite" parent="." index="19"]
 
 editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 192, 16, 16, 16 )
+region_rect = Rect2( 191, 14, 16, 16 )
 _sections_unfolded = [ "Region", "Transform" ]
 __meta__ = {
 "_edit_group_": true
@@ -382,15 +380,15 @@ shape = SubResource( 9 )
 
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 208, 16, 16, 16 )
-_sections_unfolded = [ "Region" ]
+region_rect = Rect2( 208, 14, 16, 16 )
+_sections_unfolded = [ "Region", "Transform" ]
 
 [node name="WallThreeC" type="Sprite" parent="." index="21"]
 
 editor/display_folded = true
 texture = ExtResource( 1 )
 region_enabled = true
-region_rect = Rect2( 208, 16, 16, 16 )
+region_rect = Rect2( 208, 14, 16, 16 )
 _sections_unfolded = [ "Region", "Transform" ]
 __meta__ = {
 "_edit_group_": true
