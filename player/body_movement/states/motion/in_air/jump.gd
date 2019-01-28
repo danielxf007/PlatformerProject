@@ -1,7 +1,7 @@
 extends "res://player/body_movement/states/motion/motion.gd"
 
 const GRAVITY_ACCELARATION = 300.0
-const VERTICAL_SPEED = 200
+const VERTICAL_SPEED = 150
 const HORIZONTAL_SPEED = 100
 const FLOOR_NORMAL = Vector2(0, -1)
 var velocity = Vector2()
