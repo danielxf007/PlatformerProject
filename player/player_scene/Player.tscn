@@ -8,7 +8,7 @@
 [ext_resource path="res://player/body_movement/states/motion/in_air/jump.gd" type="Script" id=6]
 [ext_resource path="res://player/body_movement/states/motion/in_air/fall.gd" type="Script" id=7]
 [ext_resource path="res://player/body_movement/states/combat/stagger.gd" type="Script" id=8]
-[ext_resource path="res://player/body_movement/states/combat/attack.gd" type="Script" id=9]
+[ext_resource path="res://attacks/Attacks.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -117,7 +117,7 @@ tracks/0/keys = {
 "values": [ 37, 38, 39, 40, 37, 38, 39, 40 ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -125,9 +125,6 @@ collision_mask = 109
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Body" type="Sprite" parent="." index="0"]
 
@@ -160,7 +157,6 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
-editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 
@@ -184,12 +180,13 @@ script = ExtResource( 7 )
 
 script = ExtResource( 8 )
 
-[node name="Attack" type="Node" parent="StateMachine" index="5"]
-
-script = ExtResource( 9 )
-
 [node name="Health" type="Node" parent="." index="4"]
 
 [node name="Purse" type="Node" parent="." index="5"]
+
+[node name="Attacks" parent="." index="6" instance=ExtResource( 9 )]
+
+position = Vector2( 17.9909, 4.98834 )
+scale = Vector2( 0.284762, 0.287427 )
 
 

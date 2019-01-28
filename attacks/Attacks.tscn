@@ -1,35 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://attacks/state_machine/attacks_state_machine.gd" type="Script" id=1]
-[ext_resource path="res://attacks/states/strike.gd" type="Script" id=2]
-[ext_resource path="res://attacks/states/wave.gd" type="Script" id=3]
+[ext_resource path="res://attacks/states/wave.gd" type="Script" id=2]
 
 [node name="Attacks" type="Node2D" index="0"]
 
 [node name="StateMachine" type="Node" parent="." index="0"]
 
 script = ExtResource( 1 )
-initial_state = NodePath("Strike")
+initial_state = NodePath("Weave")
 
-[node name="Strike" type="Node" parent="StateMachine" index="0"]
+[node name="Weave" type="Node" parent="StateMachine" index="0"]
 
 script = ExtResource( 2 )
-
-[node name="CoolDownTimer" type="Timer" parent="StateMachine/Strike" index="0"]
-
-process_mode = 1
-wait_time = 2.0
-one_shot = true
-autostart = false
-
-[node name="Weave" type="Node" parent="StateMachine" index="1"]
-
-script = ExtResource( 3 )
 
 [node name="CoolDownTimer" type="Timer" parent="StateMachine/Weave" index="0"]
 
 process_mode = 1
-wait_time = 3.0
+wait_time = 2.0
 one_shot = true
 autostart = false
 

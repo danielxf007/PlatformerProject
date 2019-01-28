@@ -10,6 +10,9 @@ func exit():
 func update(state_name):
 	return
 
+func handle_input(event):
+	return
+
 func handle_animation(ani_name):
 	return
 

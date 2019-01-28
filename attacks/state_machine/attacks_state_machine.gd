@@ -2,7 +2,6 @@ extends "res://attacks/state_machine/state_machine.gd"
 
 func _ready():
 	states_map = {
-		"strike" : $Strike,
 		"weave" : $Weave
 	}
 

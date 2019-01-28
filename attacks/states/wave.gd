@@ -3,7 +3,7 @@ extends "res://attacks/states/state.gd"
 var wave = preload("res://attacks/wave/wave_scene/Wave.tscn")
 
 func enter():
-	return
+		set_owner(get_parent().get_parent().get_parent())
 
 func exit():
 	return
@@ -14,6 +14,10 @@ func update(state_name):
 func handle_animation(ani_name):
 	return
 
+func handle_input(event):
+	if event.is_action_pressed("weave"):
+		make_attack(owner.look_direction)
+
 func _on_animation_finished(anim_name):
 	return
 
@@ -22,6 +26,7 @@ func make_attack(direction):
 		return
 	$CoolDownTimer.start()
 	var new_wave = wave.instance()
-	new_wave.add_collision_exception_with(owner.get_parent()) 
+	new_wave.set_look_direction(direction)
+	new_wave.add_collision_exception_with(owner) 
 	new_wave.direction = direction
-	owner.add_child(new_bullet)
+	owner.add_child(new_wave)

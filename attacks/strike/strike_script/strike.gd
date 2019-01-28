@@ -13,7 +13,7 @@ func _on_StrikeArea_body_entered(body):
 
 
 func _on_ActiveTime_timeout():
-	set_process_input(not value)
-	set_physics_process(not value)
+	set_process_input(false)
+	set_physics_process(false)
 	$StrikeArea.queue_free()
 	queue_free()

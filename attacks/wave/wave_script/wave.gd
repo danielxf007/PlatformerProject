@@ -4,6 +4,7 @@ const GRAVITY = 1.0
 const HORIZONTAL_SPEED = 300.0
 const PUSH_FORCE = 500.0
 var direction
+var look_direction = Vector2(1, 0) setget set_look_direction
 var velocity = Vector2()
 
 func _ready():
@@ -26,3 +27,6 @@ func is_outside_view_bounds():
 	var out_x_bound = position.x > OS.get_screen_size().x or position.x < 0.0
 	var out_y_bound = position.y > OS.get_screen_size().y or position.y < 0.0
 	return out_x_bound or out_y_bound
+
+func set_look_direction(new_direction):
+	$Sprite.flip_h = new_direction.x < 0
