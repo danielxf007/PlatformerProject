@@ -32,3 +32,9 @@ func set_look_direction(value):
 
 func get_look_direction():
 	return look_direction
+
+func climb(value):
+	if value:
+		$StateMachine._change_state("climb")
+	else:
+		$StateMachine/Climb.stop_climb()
