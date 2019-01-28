@@ -15,7 +15,7 @@ func handle_animation(ani_name):
 	return
 
 func handle_input(event):
-	if event.is_action_pressed("weave"):
+	if event.is_action_pressed("attack"):
 		make_attack(owner.look_direction)
 
 func _on_animation_finished(anim_name):

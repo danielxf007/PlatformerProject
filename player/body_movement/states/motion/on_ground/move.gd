@@ -16,12 +16,6 @@ func exit():
 	direction = null
 
 func handle_input(event):
-	if event.is_action_pressed("strike"):
-		var attacks = owner.get_node("Attacks")
-		var state_machine = attacks.get_node("StateMachine")
-		state_machine._change_state("strike")
-		var current_state = state_machine.current_state
-		current_state.make_attack()
 	return .handle_input(event)
 
 func update(delta):
