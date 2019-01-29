@@ -1,15 +1,17 @@
 extends Node
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+signal health_changed(new_health)
+export(int) var max_health = 20
+var health = 0
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	health = max_health
+	emit_signal("health_changed", max_health)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func take_damage(amount, effect):
+	health -= amount
+	emit_signal("health_changed", health)
+	if health <= 0:
+		owner.set_dead(true)
+	if not effect:
+		return

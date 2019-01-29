@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GUI/interface/Interface.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/first_level/first_level_scene/FirstLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player_scene/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GUI/health/health.gd" type="Script" id=4]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 
@@ -23,8 +24,16 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 "Persistant",
 ] instance=ExtResource( 3 )]
 
-editor/display_folded = true
 position = Vector2( 287.778, 229.433 )
+
+[node name="Health" parent="Player" index="4"]
+
+script = ExtResource( 4 )
+max_health = 20
+
+[connection signal="health_changed" from="Player/Health" to="CanvasLayer/Interface" method="_on_Health_health_changed"]
+
+[connection signal="cristals_changed" from="Player/Purse" to="CanvasLayer/Interface" method="_on_Purse_cristals_changed"]
 
 
 [editable path="Player"]

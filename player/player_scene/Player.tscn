@@ -133,7 +133,7 @@ tracks/0/keys = {
 "values": [ 37, 38, 39, 40, 37, 38, 39, 40 ]
 }
 
-[node name="Player" type="KinematicBody2D" index="0"]
+[node name="Player" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 2
@@ -210,7 +210,7 @@ script = ExtResource( 9 )
 [node name="Purse" type="Node" parent="." index="5"]
 
 script = ExtResource( 10 )
-coins = 0
+cristals = 0
 
 [node name="Attacks" parent="." index="6" instance=ExtResource( 11 )]
 
