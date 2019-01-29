@@ -25,6 +25,10 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
 position = Vector2( 287.778, 229.433 )
 
+[node name="Health" parent="Player" index="4"]
+
+max_health = 50
+
 [connection signal="health_changed" from="Player/Health" to="CanvasLayer/Interface" method="_on_Health_health_changed"]
 
 [connection signal="cristals_changed" from="Player/Purse" to="CanvasLayer/Interface" method="_on_Purse_cristals_changed"]

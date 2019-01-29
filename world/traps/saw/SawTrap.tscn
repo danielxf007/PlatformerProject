@@ -1,0 +1,78 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://world/traps/saw/saw_trap.gd" type="Script" id=1]
+[ext_resource path="res://art/platformIndustrial_067.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 11.301
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 8.39073
+
+[node name="SawTrap" type="Node2D"]
+
+script = ExtResource( 1 )
+damage = 10
+stagger_time = 0.3
+
+[node name="Saw" type="RigidBody2D" parent="." index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+
+[node name="Sprite" type="Sprite" parent="Saw" index="0"]
+
+scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="StrikeZone" type="Area2D" parent="Saw" index="1"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saw/StrikeZone" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Saw" index="2"]
+
+shape = SubResource( 2 )
+
+[node name="CoolDown" type="Timer" parent="Saw" index="3"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = false
+
+[connection signal="body_entered" from="Saw/StrikeZone" to="." method="_on_StrikeZone_body_entered"]
+
+[connection signal="timeout" from="Saw/CoolDown" to="." method="_on_CoolDown_timeout"]
+
+

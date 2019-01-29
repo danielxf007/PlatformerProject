@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://world/WorldName.tscn" type="PackedScene" id=1]
 [ext_resource path="res://world/first_level/tiles/first_level_tiles.tres" type="TileSet" id=2]
 [ext_resource path="res://world/moving_platform/MovingPlatform.tscn" type="PackedScene" id=3]
-[ext_resource path="res://world/interactive_objects/Stairs.tscn" type="PackedScene" id=4]
-[ext_resource path="res://world/interactive_objects/cristals/Cristal.tscn" type="PackedScene" id=5]
-[ext_resource path="res://world/interactive_objects/chest/Chest.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/traps/spikes/Spikes.tscn" type="PackedScene" id=4]
+[ext_resource path="res://world/traps/saw/SawTrap.tscn" type="PackedScene" id=5]
+[ext_resource path="res://world/interactive_objects/Stairs.tscn" type="PackedScene" id=6]
+[ext_resource path="res://world/interactive_objects/cristals/Cristal.tscn" type="PackedScene" id=7]
+[ext_resource path="res://world/interactive_objects/chest/Chest.tscn" type="PackedScene" id=8]
 
 [node name="FirstLevel" index="0" instance=ExtResource( 1 )]
 
@@ -44,15 +46,23 @@ position = Vector2( -28.2377, 260.539 )
 SPEED = 50.0
 horizontal_movement = false
 
-[node name="Stairs" parent="InteractiveObjects" index="0" instance=ExtResource( 4 )]
+[node name="Spikes" parent="Traps" index="0" instance=ExtResource( 4 )]
+
+position = Vector2( 267.884, 307.059 )
+
+[node name="SawTrap" parent="Traps" index="1" instance=ExtResource( 5 )]
+
+position = Vector2( 348.576, 308.037 )
+
+[node name="Stairs" parent="InteractiveObjects" index="0" instance=ExtResource( 6 )]
 
 position = Vector2( 40.0788, 284.69 )
 
-[node name="Cristal" parent="InteractiveObjects" index="1" instance=ExtResource( 5 )]
+[node name="Cristal" parent="InteractiveObjects" index="1" instance=ExtResource( 7 )]
 
 position = Vector2( 215.68, 302.278 )
 
-[node name="Chest" parent="InteractiveObjects" index="2" instance=ExtResource( 6 )]
+[node name="Chest" parent="InteractiveObjects" index="2" instance=ExtResource( 8 )]
 
 position = Vector2( 93.5264, 264.593 )
 max_number_cristals = 10
