@@ -38,3 +38,6 @@ func climb(value):
 		$StateMachine._change_state("climb")
 	else:
 		$StateMachine/Climb.stop_climb()
+
+func cure(amount):
+	$Health.cure(amount)

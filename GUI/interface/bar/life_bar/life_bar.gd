@@ -1,6 +1,6 @@
 extends HBoxContainer
 signal maximum_changed(maximum)
-var maximun_value = 20
+var maximun_value = 50
 var current_health = 0
 
 func initialize(maximun):
@@ -19,6 +19,8 @@ func animate_value(start, end):
 	$Tween.start()
 	if end < start:
 		$AnimationPlayer.play("shake")
+	else:
+		$AnimationPlayer.play("cure")
 
 func update_count_text(value):
 	$Counter/Number.text = str(round(value)) + "/" + str(maximun_value)

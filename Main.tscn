@@ -23,7 +23,7 @@ transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 "Persistant",
 ] instance=ExtResource( 3 )]
 
-position = Vector2( 287.778, 229.433 )
+position = Vector2( 236.744, 304.113 )
 
 [node name="Health" parent="Player" index="4"]
 
