@@ -1,5 +1,8 @@
 extends Node2D
 
+func _ready():
+	$AnimationPlayer.play("coin")
+
 func _on_Visibility_body_entered(body):
 	if body.name == "Player":
 		var purse = body.get_node("Purse")

@@ -9,10 +9,9 @@ func _on_InteractiveArea_body_entered(body):
 		var purse = body.get_node("Purse")
 		purse.take_coin(coins)
 		$AnimationPlayer.play("dissapear")
+		$InteractiveArea/CollisionShape2D.disabled = true
 		$Timer.start()
 
 
 func _on_Timer_timeout():
-	$InteractiveArea/CollisionShape2D.disabled = true
 	queue_free()
-	
