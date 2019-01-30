@@ -76,7 +76,7 @@ func set_dead(value):
 	set_physics_process(not value)
 	$CollisionShape2D.disabled = value
 	$Visibility.queue_free()
-	$SoundEffects/Dead.play()
+	$DamageZone.queue_free()
 	queue_free()
 
 func _on_Player_direction_changed(new_direction):

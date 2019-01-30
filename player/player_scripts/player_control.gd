@@ -36,7 +36,7 @@ func get_look_direction():
 func climb(value):
 	if value:
 		$StateMachine._change_state("climb")
-	else:
+	elif !value and $StateMachine.current_state.name == "Climb":
 		$StateMachine/Climb.stop_climb()
 
 func cure(amount):
