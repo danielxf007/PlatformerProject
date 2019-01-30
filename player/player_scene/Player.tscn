@@ -178,7 +178,6 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
-editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 

@@ -16,8 +16,8 @@ func _ready():
 
 func initialize(initial_state):
 	set_active(true)
-	states_stack.push_back(get_node(initial_state))
-	current_state = states_stack[states_stack.size() -1]
+	states_stack.push_front(get_node(initial_state))
+	current_state = states_stack[0]
 	current_state.enter()
 
 func set_active(value):
@@ -28,20 +28,15 @@ func set_active(value):
 		states_stack = []
 		current_state = null
 
-func _input(event):
-	current_state.handle_input(event)
-
-func _physics_process(delta):
-	current_state.update(delta)
-
 func _change_state(state_name):
 	if not _active:
 		return
 	current_state.exit()
 	if state_name == "previous":
-		states_stack.pop_back()
+		states_stack.pop_front()
 	else:
-		states_stack[states_stack.size() -1] = states_map[state_name]
-	current_state = states_stack[states_stack.size() -1]
+		states_stack[0] = states_map[state_name]
+	current_state = states_stack[0]
 	emit_signal("state_changed", current_state)
+	#if state_name != "previous":
 	current_state.enter()

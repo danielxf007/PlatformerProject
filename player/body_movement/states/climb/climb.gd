@@ -33,3 +33,4 @@ func get_input_direction():
 
 func stop_climb():
 	emit_signal("finished", "previous")
+	print("emited")

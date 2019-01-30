@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://enemies/enemy_prototype/attacks/state_machine/enemy_attacks_state_machine.gd" type="Script" id=1]
+[ext_resource path="res://enemies/enemy_prototype/attacks/state/wave.gd" type="Script" id=2]
+[ext_resource path="res://enemies/enemy_prototype/attacks/state/fire_ball.gd" type="Script" id=3]
+[ext_resource path="res://enemies/enemy_prototype/attacks/state/blue_fire_ball.gd" type="Script" id=4]
+
+[node name="EnemyAttacks" type="Node2D"]
+
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StateMachine" type="Node" parent="." index="0"]
+
+script = ExtResource( 1 )
+initial_state = NodePath("Weave")
+
+[node name="Weave" type="Node" parent="StateMachine" index="0"]
+
+script = ExtResource( 2 )
+
+[node name="CoolDownTimer" type="Timer" parent="StateMachine/Weave" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="Flame" type="Node" parent="StateMachine" index="1"]
+
+script = ExtResource( 3 )
+
+[node name="CoolDownTimer" type="Timer" parent="StateMachine/Flame" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+[node name="BlueFlame" type="Node" parent="StateMachine" index="2"]
+
+script = ExtResource( 4 )
+
+[node name="CoolDownTimer" type="Timer" parent="StateMachine/BlueFlame" index="0"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = false
+
+
