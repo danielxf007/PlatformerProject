@@ -21,6 +21,7 @@ collision_mask = 19
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "collision" ]
+PUSH_FORCE = Vector2( 700, 0 )
 strike_zone_damage = 2
 strike_zone_stagger_time = 0.3
 attack = null
@@ -110,7 +111,6 @@ script = ExtResource( 7 )
 
 [node name="Brain" type="Node" parent="." index="10"]
 
-editor/display_folded = true
 script = ExtResource( 8 )
 initial_state = NodePath("Patrol")
 
@@ -121,10 +121,12 @@ script = ExtResource( 9 )
 [node name="Attack" type="Node" parent="Brain" index="1"]
 
 script = ExtResource( 10 )
+move = false
 
 [node name="Eyes" parent="." index="11" instance=ExtResource( 11 )]
 
 position = Vector2( 1.16227, -2.13083 )
+projectile_attack = true
 
 [node name="Health" type="Node" parent="." index="12"]
 

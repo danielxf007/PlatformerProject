@@ -1,6 +1,7 @@
 extends Node2D
 
 export (int) var detect_radius = 100
+export (bool) var projectile_attack = true
 var vis_color = Color(.867, .91, .247, 0.1)
 var laser_color = Color(1.0, .329, .298)
 var target = null
@@ -20,15 +21,16 @@ func _physics_process(delta):
 
 func aim():
 	face_target(target)
-	var target_pos = target.global_position
-	var robot_pos = owner.global_position
-	var attacks_state_machine = owner.get_node("EnemyAttacks").get_node("StateMachine")
-	var attack = attacks_state_machine.current_state
-	if attack != null:
-		var pos = target_pos.x - robot_pos.x
-		var pos_sign = sign(pos)
-		var shot_direction = Vector2(1 * pos_sign, 0)
-		attack.make_attack(shot_direction)
+	if projectile_attack:
+		var target_pos = target.global_position
+		var robot_pos = owner.global_position
+		var attacks_state_machine = owner.get_node("EnemyAttacks").get_node("StateMachine")
+		var attack = attacks_state_machine.current_state
+		if attack != null:
+			var pos = target_pos.x - robot_pos.x
+			var pos_sign = sign(pos)
+			var shot_direction = Vector2(1 * pos_sign, 0)
+			attack.make_attack(shot_direction)
 """	hit_pos = []
 	var space_state = get_world_2d().direct_space_state
 	var target_extents = target.get_node('CollisionShape2D').shape.extents - Vector2(5, 5)

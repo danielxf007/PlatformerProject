@@ -1,8 +1,8 @@
 extends KinematicBody2D
 
-const PUSH_FORCE = Vector2(700, 0)
 onready var stagger = $BodyMovement/Stagger
 onready var health = $Health
+export(Vector2) var PUSH_FORCE = Vector2(700, 0)
 export(int) var strike_zone_damage = 2
 export(float) var strike_zone_stagger_time = 0.3
 export(String) var attack = null
@@ -14,7 +14,7 @@ var player_direction
 var player
 func _ready():
 	var weapon_state_machine = $EnemyAttacks.get_node("StateMachine") 
-	if not attack  in ["weave", "fire_ball", "blue_fire_ball"]:
+	if not attack  in ["weave", "flame", "blue_flame"]:
 		attack = "weave"
 		weapon_state_machine._change_state(attack)
 	else:
