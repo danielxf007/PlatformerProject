@@ -90,7 +90,7 @@ custom_solver_bias = 0.0
 radius = 9.58298
 height = 9.76073
 
-[node name="BaldEnemy" index="0" instance=ExtResource( 1 )]
+[node name="BaldEnemy" instance=ExtResource( 1 )]
 
 attack = "Null"
 
@@ -120,13 +120,17 @@ position = Vector2( 0, 5 )
 
 [node name="DetectWallRight" parent="." index="5"]
 
+position = Vector2( 0, 14 )
 enabled = true
 cast_to = Vector2( 15, 0 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="DetectWallLeft" parent="." index="6"]
 
+position = Vector2( 0, 14 )
 enabled = true
 cast_to = Vector2( -15, 0 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="DetectFloorRight" parent="." index="7"]
 

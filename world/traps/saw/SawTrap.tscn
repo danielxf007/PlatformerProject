@@ -13,7 +13,7 @@ radius = 11.301
 custom_solver_bias = 0.0
 radius = 8.39073
 
-[node name="SawTrap" type="Node2D" groups=[
+[node name="SawTrap" type="Node2D" index="0" groups=[
 "Persist",
 ]]
 
@@ -27,8 +27,8 @@ stagger_time = 0.3
 [node name="Saw" type="RigidBody2D" parent="." index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 64
+collision_mask = 2
 mode = 0
 mass = 1.0
 friction = 1.0
@@ -44,6 +44,7 @@ linear_velocity = Vector2( 0, 0 )
 linear_damp = -1.0
 angular_velocity = 0.0
 angular_damp = -1.0
+_sections_unfolded = [ "Collision" ]
 
 [node name="Sprite" type="Sprite" parent="Saw" index="0"]
 

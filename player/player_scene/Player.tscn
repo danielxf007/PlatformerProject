@@ -182,6 +182,7 @@ blend_times = [  ]
 
 [node name="StateMachine" type="Node" parent="." index="3"]
 
+editor/display_folded = true
 script = ExtResource( 3 )
 initial_state = NodePath("Idle")
 
@@ -241,10 +242,10 @@ smoothing_enabled = true
 smoothing_speed = 5.0
 offset_v = 0.0
 offset_h = 0.0
-drag_margin_left = 0.2
-drag_margin_top = 0.2
-drag_margin_right = 0.2
-drag_margin_bottom = 0.2
+drag_margin_left = 0.3
+drag_margin_top = 0.3
+drag_margin_right = 0.3
+drag_margin_bottom = 0.3
 editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true

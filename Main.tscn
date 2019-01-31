@@ -9,7 +9,8 @@
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 199.802, 303.292 )
+editor/display_folded = true
+position = Vector2( 17.4072, 79.2596 )
 
 
 [editable path="Player"]
