@@ -1,36 +1,33 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://world/puzzle/puzzle_one/puzzle_one.gd" type="Script" id=1]
+[ext_resource path="res://world/puzzle/puzzle_two/second_puzzle.gd" type="Script" id=1]
 [ext_resource path="res://world/obstacles/stake/Stake.tscn" type="PackedScene" id=2]
 [ext_resource path="res://world/interactive_objects/sign/Sign.tscn" type="PackedScene" id=3]
 
-[node name="PuzzleOne" type="Node2D"]
+[node name="SecondPuzzle" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
-correct_code = [ 0, 3, 2, 1 ]
+correct_code = [ 0, 4, 1, 2, 3 ]
 
 [node name="Stake" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( 40, 0 )
+position = Vector2( 50, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Stake2" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 65, 0 )
+position = Vector2( 75, 0 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Stake3" parent="." index="2" instance=ExtResource( 2 )]
 
-position = Vector2( 90, 0 )
-_sections_unfolded = [ "Transform" ]
+position = Vector2( 100, 0 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Activate" type="Timer" parent="." index="3"]
 
 process_mode = 1
-wait_time = 2.0
+wait_time = 3.0
 one_shot = true
 autostart = false
 
@@ -38,34 +35,45 @@ autostart = false
 
 [node name="Sign" parent="Signs" index="0" instance=ExtResource( 3 )]
 
-position = Vector2( -90, 24 )
+position = Vector2( 0, 24 )
 _sections_unfolded = [ "Transform" ]
-type_of_sign = "1"
-signs = [ "Sign" ]
+type_of_sign = "4"
+sign_pos = 4
+signs = [ "Sign2", "Sign4" ]
 
 [node name="Sign2" parent="Signs" index="1" instance=ExtResource( 3 )]
 
-position = Vector2( -60, 24 )
+position = Vector2( -30, 24 )
 _sections_unfolded = [ "Transform" ]
 type_of_sign = "5"
-sign_pos = 1
-signs = [ "Sign2" ]
+sign_pos = 3
+signs = [ "Sign2", "Sign4", "Sign3", "Sign", "Sign5" ]
 
 [node name="Sign3" parent="Signs" index="2" instance=ExtResource( 3 )]
 
-position = Vector2( -30, 24 )
+position = Vector2( -60, 24 )
 _sections_unfolded = [ "Transform" ]
-type_of_sign = "4"
+type_of_sign = "2"
 sign_pos = 2
-signs = [ "Sign3" ]
+amount_can_change = 2
+signs = [ "Sign2" ]
 
 [node name="Sign4" parent="Signs" index="3" instance=ExtResource( 3 )]
 
-position = Vector2( 0, 24 )
+position = Vector2( -90, 24 )
 _sections_unfolded = [ "Transform" ]
-type_of_sign = "0"
-sign_pos = 3
-signs = [ "Sign4" ]
+type_of_sign = "3"
+sign_pos = 1
+amount_can_change = -1
+signs = [ "Sign2", "Sign4", "Sign3", "Sign", "Sign5" ]
+
+[node name="Sign5" parent="Signs" index="4" instance=ExtResource( 3 )]
+
+position = Vector2( -120, 24 )
+_sections_unfolded = [ "Transform" ]
+type_of_sign = "1"
+amount_can_change = 4
+signs = [ "Sign5", "Sign3", "Sign" ]
 
 [connection signal="timeout" from="Activate" to="." method="_on_Activate_timeout"]
 
@@ -76,5 +84,7 @@ signs = [ "Sign4" ]
 [connection signal="number_changed" from="Signs/Sign3" to="." method="_on_Sign3_number_changed"]
 
 [connection signal="number_changed" from="Signs/Sign4" to="." method="_on_Sign4_number_changed"]
+
+[connection signal="number_changed" from="Signs/Sign5" to="." method="_on_Sign5_number_changed"]
 
 

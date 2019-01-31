@@ -11,3 +11,4 @@ func handle_animation(ani_name):
 func _on_Dissapear_timeout():
 	$Sprite/StaticBody2D/CollisionShape2D.disabled = true
 	queue_free()
+

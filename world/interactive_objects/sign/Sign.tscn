@@ -126,7 +126,10 @@ tracks/0/keys = {
 
 script = ExtResource( 1 )
 type_of_sign = null
-correct_number = 0
+sign_pos = 0
+amount_can_change = 1
+max_number_of_signs = 6
+signs = null
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

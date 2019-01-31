@@ -1,6 +1,5 @@
 extends Node2D
 
-
 export(Array) var correct_code = []
 var current_code = []
 var puzzle_solved = false
@@ -40,6 +39,7 @@ func _on_Sign_number_changed(number, sign_position):
 
 func _on_Sign2_number_changed(number, sign_position):
 	current_code[sign_position] = number
+	print(current_code)
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
@@ -53,6 +53,14 @@ func _on_Sign3_number_changed(number, sign_position):
 
 
 func _on_Sign4_number_changed(number, sign_position):
+	current_code[sign_position] = number
+	if codes_match():
+		$Activate.start()
+		desactivate_signs()
+
+
+
+func _on_Sign5_number_changed(number, sign_position):
 	current_code[sign_position] = number
 	if codes_match():
 		$Activate.start()
