@@ -17,7 +17,7 @@
 [ext_resource path="res://world/puzzle/puzzle_two/SecondPuzzle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://save/SaveNode.tscn" type="PackedScene" id=16]
 
-[node name="FirstLevel" index="0" instance=ExtResource( 1 )]
+[node name="FirstLevel" instance=ExtResource( 1 )]
 
 [node name="TileMap" type="TileMap" parent="Environment" index="0"]
 
@@ -234,23 +234,19 @@ position = Vector2( 91.3327, 190.642 )
 
 position = Vector2( 485.747, 142.406 )
 
-[node name="Snake3" parent="Enemies" index="6" instance=ExtResource( 13 )]
-
-position = Vector2( 628.177, 202.276 )
-
-[node name="Snake4" parent="Enemies" index="7" instance=ExtResource( 13 )]
+[node name="Snake4" parent="Enemies" index="6" instance=ExtResource( 13 )]
 
 position = Vector2( 525.295, 446.009 )
 
-[node name="BaldEnemy3" parent="Enemies" index="8" instance=ExtResource( 11 )]
+[node name="BaldEnemy3" parent="Enemies" index="7" instance=ExtResource( 11 )]
 
 position = Vector2( 606.896, 446.078 )
 
-[node name="BaldEnemy4" parent="Enemies" index="9" instance=ExtResource( 11 )]
+[node name="BaldEnemy4" parent="Enemies" index="8" instance=ExtResource( 11 )]
 
 position = Vector2( 234.744, 542.114 )
 
-[node name="GreenHatEnemy3" parent="Enemies" index="10" instance=ExtResource( 12 )]
+[node name="GreenHatEnemy3" parent="Enemies" index="9" instance=ExtResource( 12 )]
 
 position = Vector2( 593.909, 541.892 )
 

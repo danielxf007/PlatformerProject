@@ -144,10 +144,6 @@ enabled = true
 cast_to = Vector2( 0, 15 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Eyes" parent="." index="11"]
-
-detect_radius = 50
-
 [node name="CollisionShape2D" parent="DamageZone" index="0"]
 
 position = Vector2( 0, 5 )

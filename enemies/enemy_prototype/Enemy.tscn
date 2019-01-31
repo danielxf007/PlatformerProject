@@ -128,6 +128,7 @@ move = false
 [node name="Eyes" parent="." index="11" instance=ExtResource( 11 )]
 
 position = Vector2( 1.16227, -2.13083 )
+detect_radius = 30
 projectile_attack = true
 
 [node name="Health" type="Node" parent="." index="12"]
