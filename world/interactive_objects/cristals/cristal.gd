@@ -28,3 +28,10 @@ func save():
 		"on_screen" : on_screen
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	on_screen = _dict["on_screen"]
+	if !on_screen:
+		$Visibility.queue_free()
+		queue_free()

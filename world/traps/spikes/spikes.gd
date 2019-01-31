@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const PUSH_FORCE = Vector2(700.0, 0)
+var PUSH_FORCE = Vector2(700.0, 0)
 export(int) var damage = 10
 export(float) var stagger_time = 0.3
 
@@ -25,3 +25,9 @@ func save():
 		"stagger_time" : stagger_time
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	PUSH_FORCE = Vector2(_dict["push_force_x"], 0)
+	damage = _dict["damage"]
+	stagger_time = _dict["stagger_time"]

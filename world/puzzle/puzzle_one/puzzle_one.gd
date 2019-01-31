@@ -79,3 +79,9 @@ func save():
 		"puzzle_solved" : puzzle_solved
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	correct_code = _dict["correct_code"]
+	current_code = _dict["current_code"]
+	puzzle_solved = _dict["puzzle_solved"]

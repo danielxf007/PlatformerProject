@@ -33,3 +33,13 @@ func save():
 
 func _on_Timer_timeout():
 	queue_free()
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	on_screen = _dict["on_screen"]
+	max_number_cristals = _dict["max_number_cristals"]
+	min_number_cristals = _dict["min_number_cristals"]
+	cristals = _dict["cristals"]
+	if !on_screen:
+		$InteractiveArea.queue_free()
+		queue_free()

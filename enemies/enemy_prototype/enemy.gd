@@ -14,18 +14,14 @@ var player_direction
 var player
 func _ready():
 	var weapon_state_machine = $EnemyAttacks.get_node("StateMachine") 
-	if not attack  in ["weave", "flame", "blue_flame"]:
-		attack = "weave"
+	if not attack  in ["Weave", "Flame", "BlueFlame"]:
+		attack = "Weave"
 		weapon_state_machine._change_state(attack)
 	else:
 		weapon_state_machine._change_state(attack)
 	_randomize_look_direction()
 	_randomize_movement_direction()
-	for node in  get_tree().get_nodes_in_group("actor"):
-		if node.name == "Player":
-			player = node
-			break 
-	player_direction = player.get_look_direction()
+
 
 
 func set_look_direction(direction):
@@ -69,7 +65,7 @@ func take_damage(amount, push_force, stagger_time, effect = null):
 	var direction_sign = sign(look_direction.x)
 	push_force = push_force * -direction_sign
 	stagger.set_push_force(push_force)
-	$BodyMovement._change_state("stagger")
+	$BodyMovement._change_state("Stagger")
 
 func set_dead(value):
 	set_process_input(not value)
@@ -113,3 +109,19 @@ func save():
 		"right" :right
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	$Health.health = _dict["health"]
+	$Health.max_health = _dict["max_health"]
+	$BodyMovement._change_state(_dict["movement_current_state"])
+	$EnemyAttacks/StateMachine._change_state(_dict["attack"])
+	set_look_direction(Vector2(_dict["look_direction_x"], 0))
+	set_movement_direction(Vector2(_dict["movement_direction_x"], 0))
+	$Brain._change_state(_dict["brain_state"])
+	PUSH_FORCE = Vector2(_dict["push_force_x"], 0)
+	strike_zone_damage = _dict["strike_zone_damage"]
+	strike_zone_stagger_time = _dict["strike_zone_stagger_timer"]
+	attack = _dict["set_attack"]
+	left = _dict["left"]
+	right = _dict["right"]

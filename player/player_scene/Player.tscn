@@ -135,8 +135,8 @@ tracks/0/keys = {
 }
 
 [node name="Player" type="KinematicBody2D" groups=[
-"Persist",
 "actor",
+"Persist",
 ]]
 
 input_pickable = false

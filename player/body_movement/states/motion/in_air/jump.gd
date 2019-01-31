@@ -24,7 +24,7 @@ func update(delta):
 		emit_signal("finished", "previous")
 	if owner.is_on_ceiling():
 		var state_machine = get_parent()
-		emit_signal("finished", "fall")
+		emit_signal("finished", "Fall")
 
 func make_jump(input_direction, on_air_t, delta):
 	velocity.x = input_direction.x * HORIZONTAL_SPEED

@@ -1,6 +1,5 @@
 extends "res://enemies/enemy_prototype/brain/states/state.gd"
 
-onready var decisions = ["idle", "move", "fall"]
 export(bool) var move = false
 var body_movement
 var detect_floor_left
@@ -18,9 +17,9 @@ func enter():
 	detect_wall_right = owner.get_node("DetectWallRight")
 	var movement
 	if move:
-		movement = "move"
+		movement = "Move"
 	else:
-		movement = "idle"
+		movement = "Idle"
 	body_movement._change_state(movement)
 	body_movement_state = body_movement.current_state
 

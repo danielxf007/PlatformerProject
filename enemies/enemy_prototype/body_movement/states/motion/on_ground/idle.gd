@@ -9,11 +9,11 @@ func enter():
 func update(delta):
 	var input_direction = get_input_direction()
 	if input_direction.x != 0 and input_direction.y != 0:
-		emit_signal("finished", "move")
+		emit_signal("finished", "Move")
 	else:
 		owner.move_and_slide(velocity, FLOOR_NORMAL)
 		if not owner.is_on_floor():
-			emit_signal("finished", "fall")
+			emit_signal("finished", "Fall")
 
 func handle_animation(ani_name):
 	owner.get_node("AnimationPlayer").play(ani_name)

@@ -29,3 +29,10 @@ func save():
 		"min_amount" : min_amount
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	on_screen = _dict["on_screen"]
+	amount = _dict["amount"]
+	max_amount = _dict["max_amount"]
+	min_amount = _dict["min_amount"]

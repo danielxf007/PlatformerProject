@@ -4,7 +4,7 @@
 [ext_resource path="res://world/first_level/first_level_scene/FirstLevel.tscn" type="PackedScene" id=2]
 [ext_resource path="res://player/player_scene/Player.tscn" type="PackedScene" id=3]
 
-[node name="Main" type="Node" index="0"]
+[node name="Main" type="Node"]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." index="0"]
 

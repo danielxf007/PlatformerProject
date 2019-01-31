@@ -21,7 +21,7 @@ func handle_input(event):
 func update(delta):
 	direction = get_input_direction()
 	if not direction:
-		emit_signal("finished", "idle")
+		emit_signal("finished", "Idle")
 	else:
 		update_look_direction(direction)
 		move(direction, delta)
@@ -32,7 +32,7 @@ func move(input_direction, delta):
 	velocity.y = GRAVITY
 	owner.move_and_slide(velocity, FLOOR_NORMAL)
 	if not owner.is_on_floor():
-		emit_signal("finished", "fall")
+		emit_signal("finished", "Fall")
 
 func calculate_speed(input_direction, delta):
 	var acceleration =  total_force * input_direction.x

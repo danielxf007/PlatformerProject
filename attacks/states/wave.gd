@@ -18,9 +18,9 @@ func handle_input(event):
 	if event.is_action_pressed("attack"):
 		make_attack(owner.look_direction)
 	if event.is_action_pressed("flame"):
-		emit_signal("finished", "flame")
+		emit_signal("finished", "Flame")
 	if event.is_action_pressed("blue_flame"):
-		emit_signal("finished", "blue_flame")
+		emit_signal("finished", "BlueFlame")
 
 func _on_animation_finished(anim_name):
 	return

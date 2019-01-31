@@ -8,7 +8,7 @@ var velocity = Vector2(0, 1)
 
 func handle_input(event):
 	if event.is_action_pressed("jump"):
-		emit_signal("finished", "jump")
+		emit_signal("finished", "Jump")
 
 func set_direction(new_direction):
 	direction = new_direction

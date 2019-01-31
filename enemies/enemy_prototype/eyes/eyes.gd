@@ -63,7 +63,7 @@ func _on_Visibility_body_entered(body):
 	target = body
 	face_target(target)
 	var brain = owner.get_node("Brain")
-	brain._change_state("attack")
+	brain._change_state("Attack")
 
 func face_target(target):
 	var robot_pos = owner.global_position
@@ -75,4 +75,4 @@ func _on_Visibility_body_exited(body):
 	if body == target:
 		target = null
 		var brain = owner.get_node("Brain")
-		brain._change_state("patrol")
+		brain._change_state("Patrol")

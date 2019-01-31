@@ -91,7 +91,7 @@ custom_solver_bias = 0.0
 radius = 11.9791
 height = 10.8546
 
-[node name="GreenHatEnemy" instance=ExtResource( 1 )]
+[node name="GreenHatEnemy" index="0" instance=ExtResource( 1 )]
 
 attack = "blue_flame"
 

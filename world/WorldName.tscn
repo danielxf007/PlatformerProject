@@ -1,4 +1,6 @@
-[gd_scene format=2]
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://load/LoadNode.tscn" type="PackedScene" id=1]
 
 [node name="WorldName" type="Node2D"]
 
@@ -15,5 +17,7 @@
 [node name="Puzzles" type="Node" parent="." index="5"]
 
 [node name="SavePoints" type="Node" parent="." index="6"]
+
+[node name="LoadNode" parent="." index="7" instance=ExtResource( 1 )]
 
 

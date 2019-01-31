@@ -2,9 +2,9 @@ extends "res://enemies/enemy_prototype/attacks/state_machine/state_machine.gd"
 
 func _ready():
 	states_map = {
-		"weave" : $Weave,
-		"blue_flame" : $BlueFlame,
-		"flame" : $Flame
+		"Weave" : $Weave,
+		"BlueFlame" : $BlueFlame,
+		"Flame" : $Flame
 	}
 
 func _change_state(state_name):

@@ -17,7 +17,7 @@ func take_damage(amount, push_force, stagger_time, effect = null):
 	var direction_sign = sign(look_direction.x)
 	push_force = push_force * -direction_sign
 	stagger.set_push_force(push_force)
-	$StateMachine._change_state("stagger")
+	$StateMachine._change_state("Stagger")
 
 func set_dead(value):
 	set_process_input(not value)
@@ -35,7 +35,7 @@ func get_look_direction():
 
 func climb(value):
 	if value:
-		$StateMachine._change_state("climb")
+		$StateMachine._change_state("Climb")
 	elif !value and $StateMachine.current_state.name == "Climb":
 		$StateMachine/Climb.stop_climb()
 
@@ -56,3 +56,12 @@ func save():
 		"look_direction_x" : get_look_direction().x
 		}
 	return save_dict
+
+func load_content(_dict):
+	position = Vector2(_dict["pos_x"], _dict["pos_y"])
+	$Health.health = _dict["health"]
+	$Health.max_health = _dict["max_health"]
+	$StateMachine._change_state(_dict["current_state"])
+	$Purse.cristals = _dict["cristals"]
+	$Attacks/StateMachine._change_state(_dict["attack"])
+	set_look_direction(Vector2(_dict["look_direction_x"], 0))
