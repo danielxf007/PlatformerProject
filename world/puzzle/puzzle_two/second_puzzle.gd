@@ -39,7 +39,6 @@ func _on_Sign_number_changed(number, sign_position):
 
 func _on_Sign2_number_changed(number, sign_position):
 	current_code[sign_position] = number
-	print(current_code)
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
