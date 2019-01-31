@@ -10,6 +10,7 @@ func _ready():
 			break
 	get_node("Bars/LifeBar").initialize(health_node.max_health)
 
+
 func _on_Health_health_changed(new_health):
 	emit_signal("health_changed", new_health)
 

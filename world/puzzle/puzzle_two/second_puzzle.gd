@@ -88,8 +88,20 @@ func save():
 		}
 	return save_dict
 
+func actualize_signs():
+	var signs = get_node("Signs")
+	var signs_children = signs.get_children()
+	for child in signs_children:
+		child.current_sign = current_code[child.sign_pos]
+		child.handle_animation(str(child.current_sign))
+
 func load_content(_dict):
 	position = Vector2(_dict["pos_x"], _dict["pos_y"])
 	correct_code = _dict["correct_code"]
 	current_code = _dict["current_code"]
 	puzzle_solved = _dict["puzzle_solved"]
+	if puzzle_solved:
+		desactivate_signs()
+		make_stakes_dissapear()
+	else:
+		actualize_signs()

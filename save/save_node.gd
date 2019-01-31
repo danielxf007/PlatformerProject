@@ -14,10 +14,11 @@ func save_game():
 		save_game.store_line(to_json(node_data))
 	save_game.close()
 	$AnimationPlayer.play("dissapear")
-	emit_signal("saving")
 	$Dissapear.start()
 
-
+func _input(event):
+	if event.is_action_pressed("save"):
+		save_game()
 
 func _on_Dissapear_timeout():
 	emit_signal("saved")
@@ -26,7 +27,7 @@ func _on_Dissapear_timeout():
 
 
 func _on_Area2D_body_entered(body):
-	save_game()
+	set_process_input(true)
 
 func save():
 	var save_dict = {
@@ -44,3 +45,6 @@ func load_content(_dict):
 	if !on_screen:
 		$Area2D.queue_free()
 		queue_free()
+
+func _on_Area2D_body_exited(body):
+	set_process_input(false)

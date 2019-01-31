@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://player/player_scripts/player_control.gd" type="Script" id=1]
 [ext_resource path="res://art/characters.png" type="Texture" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://GUI/health/health.gd" type="Script" id=10]
 [ext_resource path="res://player/purse/purse.gd" type="Script" id=11]
 [ext_resource path="res://attacks/Attacks.tscn" type="PackedScene" id=12]
+[ext_resource path="res://GUI/interface/Interface.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -211,7 +212,7 @@ script = ExtResource( 9 )
 [node name="Health" type="Node" parent="." index="4"]
 
 script = ExtResource( 10 )
-max_health = 20
+max_health = 50
 
 [node name="Purse" type="Node" parent="." index="5"]
 
@@ -248,5 +249,19 @@ editor_draw_screen = true
 editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Editor", "Limit", "Smoothing" ]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="8"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="Interface" parent="CanvasLayer" index="0" instance=ExtResource( 13 )]
+
+[connection signal="health_changed" from="Health" to="CanvasLayer/Interface" method="_on_Health_health_changed"]
+
+[connection signal="cristals_changed" from="Purse" to="CanvasLayer/Interface" method="_on_Purse_cristals_changed"]
 
 

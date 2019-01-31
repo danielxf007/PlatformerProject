@@ -4,7 +4,9 @@
 [ext_resource path="res://GUI/interface/bar/life_bar/LifeBar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GUI/interface/counter/cristals/CristalCounter.tscn" type="PackedScene" id=3]
 
-[node name="Interface" type="Control"]
+[node name="Interface" type="Control" groups=[
+"interface",
+]]
 
 anchor_left = 0.0
 anchor_top = 0.0

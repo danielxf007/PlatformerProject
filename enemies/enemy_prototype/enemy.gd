@@ -12,6 +12,7 @@ var left = false
 var right = true
 var player_direction
 var player
+var on_screen = true
 func _ready():
 	var weapon_state_machine = $EnemyAttacks.get_node("StateMachine") 
 	if not attack  in ["Weave", "Flame", "BlueFlame"]:
@@ -68,6 +69,7 @@ func take_damage(amount, push_force, stagger_time, effect = null):
 	$BodyMovement._change_state("Stagger")
 
 func set_dead(value):
+	on_screen = false
 	set_process_input(not value)
 	set_physics_process(not value)
 	$CollisionShape2D.disabled = value
@@ -106,7 +108,8 @@ func save():
 		"strike_zone_stagger_timer" : strike_zone_stagger_time,
 		"set_attack" : attack,
 		"left" : left,
-		"right" :right
+		"right" :right,
+		"on_screen" : on_screen
 		}
 	return save_dict
 
@@ -125,3 +128,11 @@ func load_content(_dict):
 	attack = _dict["set_attack"]
 	left = _dict["left"]
 	right = _dict["right"]
+	on_screen = _dict["on_screen"]
+	if ! on_screen:
+		set_process_input(false)
+		set_physics_process(false)
+		$CollisionShape2D.disabled = true
+		$Visibility.queue_free()
+		$DamageZone.queue_free()
+		queue_free()

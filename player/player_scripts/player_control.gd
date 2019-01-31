@@ -61,6 +61,7 @@ func load_content(_dict):
 	position = Vector2(_dict["pos_x"], _dict["pos_y"])
 	$Health.health = _dict["health"]
 	$Health.max_health = _dict["max_health"]
+	$Health.change_health()
 	$StateMachine._change_state(_dict["current_state"])
 	$Purse.cristals = _dict["cristals"]
 	$Attacks/StateMachine._change_state(_dict["attack"])

@@ -7,8 +7,10 @@ var health = 0
 
 func _ready():
 	health = max_health
-	emit_signal("health_changed", max_health)
+	emit_signal("health_changed", health)
 
+func change_health():
+	emit_signal("health_changed", health)
 func cure(amount):
 	health += amount
 	if health > max_health:
