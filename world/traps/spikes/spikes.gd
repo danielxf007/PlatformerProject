@@ -14,3 +14,14 @@ func _on_Area2D_body_entered(body):
 func _on_CoolDown_timeout():
 	$Area2D/CollisionShape2D.disabled = false
 
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"push_force_x" : PUSH_FORCE.x,
+		"damage" : damage,
+		"stagger_time" : stagger_time
+		}
+	return save_dict

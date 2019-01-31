@@ -77,13 +77,16 @@ tracks/0/keys = {
 "values": [ Rect2( 256, 65, 16, 15 ) ]
 }
 
-[node name="Chest" type="Node2D"]
+[node name="Chest" type="Node2D" index="0" groups=[
+"Persist",
+]]
 
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-max_number_coins = 10
+max_number_cristals = 10
+min_number_cristals = 1
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 

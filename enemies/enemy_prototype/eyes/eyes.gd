@@ -13,7 +13,7 @@ func _ready():
 	shape.radius = detect_radius
 	var visibility = owner.get_node("Visibility")
 	visibility.get_node("CollisionShape2D").shape = shape
-	print(owner)
+
 
 func _physics_process(delta):
 	if target:

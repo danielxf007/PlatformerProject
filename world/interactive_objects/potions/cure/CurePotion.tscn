@@ -8,9 +8,14 @@
 custom_solver_bias = 0.0
 radius = 6.10859
 
-[node name="CurePotion" type="Node2D"]
+[node name="CurePotion" type="Node2D" index="0" groups=[
+"Persist",
+]]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 amount = 1
 max_amount = 10
 min_amount = 1

@@ -41,3 +41,18 @@ func climb(value):
 
 func cure(amount):
 	$Health.cure(amount)
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"health" : $Health.health,
+		"max_health" : $Health.max_health,
+		"current_state" : $StateMachine.current_state.name,
+		"cristals" : $Purse.cristals,
+		"attack" : $Attacks/StateMachine.current_state.name,
+		"look_direction_x" : get_look_direction().x
+		}
+	return save_dict

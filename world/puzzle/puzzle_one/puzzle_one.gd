@@ -36,27 +36,28 @@ func _on_Sign_number_changed(number, sign_position):
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
-
+		puzzle_solved = true
 
 func _on_Sign2_number_changed(number, sign_position):
 	current_code[sign_position] = number
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
-
+		puzzle_solved = true
 
 func _on_Sign3_number_changed(number, sign_position):
 	current_code[sign_position] = number
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
-
+		puzzle_solved = true
 
 func _on_Sign4_number_changed(number, sign_position):
 	current_code[sign_position] = number
 	if codes_match():
 		$Activate.start()
 		desactivate_signs()
+		puzzle_solved = true
 
 func codes_match():
 	var code_size = correct_code.size()
@@ -66,3 +67,15 @@ func codes_match():
 			codes_match = false
 			break
 	return codes_match
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"correct_code" : correct_code,
+		"current_code" : current_code,
+		"puzzle_solved" : puzzle_solved
+		}
+	return save_dict

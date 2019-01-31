@@ -13,7 +13,9 @@
 [ext_resource path="res://enemies/enemy_prototype/eyes/Eyes.tscn" type="PackedScene" id=11]
 [ext_resource path="res://enemies/enemy_prototype/health/health.gd" type="Script" id=12]
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Enemy" type="KinematicBody2D" index="0" groups=[
+"Persist",
+]]
 
 input_pickable = false
 collision_layer = 4

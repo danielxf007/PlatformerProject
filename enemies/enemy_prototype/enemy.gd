@@ -91,3 +91,25 @@ func _on_DamageZone_body_entered(body):
 
 func _on_CoolDown_timeout():
 	$DamageZone/CollisionShape2D.disabled = false
+
+func save():
+	var save_dict = {
+		"filename" : get_filename(),
+		"parent" : get_parent().get_path(),
+		"pos_x" : position.x, # Vector2 is not supported by JSON
+		"pos_y" : position.y,
+		"health" : $Health.health,
+		"max_health" : $Health.max_health,
+		"movement_current_state" : $BodyMovement.current_state.name,
+		"attack" : $EnemyAttacks/StateMachine.current_state.name,
+		"look_direction_x" : get_look_direction().x,
+		"movement_direction_x" : get_movement_direction().x,
+		"brain_state" : $Brain.current_state.name,
+		"push_force_x" : PUSH_FORCE.x,
+		"strike_zone_damage" : strike_zone_damage,
+		"strike_zone_stagger_timer" : strike_zone_stagger_time,
+		"set_attack" : attack,
+		"left" : left,
+		"right" :right
+		}
+	return save_dict

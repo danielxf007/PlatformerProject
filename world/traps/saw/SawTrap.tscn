@@ -13,9 +13,14 @@ radius = 11.301
 custom_solver_bias = 0.0
 radius = 8.39073
 
-[node name="SawTrap" type="Node2D"]
+[node name="SawTrap" type="Node2D" groups=[
+"Persist",
+]]
 
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 damage = 10
 stagger_time = 0.3
 
