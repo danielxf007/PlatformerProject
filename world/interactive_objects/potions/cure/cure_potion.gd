@@ -36,3 +36,6 @@ func load_content(_dict):
 	amount = _dict["amount"]
 	max_amount = _dict["max_amount"]
 	min_amount = _dict["min_amount"]
+	if !on_screen:
+		$Visibility.queue_free()
+		queue_free()

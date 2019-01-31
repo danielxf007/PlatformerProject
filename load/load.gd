@@ -28,4 +28,3 @@ func load_game():
 		new_object.load_content(current_line)
 		current_line = parse_json(save_game.get_line())
 	save_game.close()
-

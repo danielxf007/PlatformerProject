@@ -17,7 +17,7 @@
 [ext_resource path="res://world/puzzle/puzzle_two/SecondPuzzle.tscn" type="PackedScene" id=15]
 [ext_resource path="res://save/SaveNode.tscn" type="PackedScene" id=16]
 
-[node name="FirstLevel" instance=ExtResource( 1 )]
+[node name="FirstLevel" index="0" instance=ExtResource( 1 )]
 
 [node name="TileMap" type="TileMap" parent="Environment" index="0"]
 
@@ -94,6 +94,14 @@ position = Vector2( 63.4818, 304.075 )
 
 position = Vector2( 235.521, 311.646 )
 
+[node name="Cristal2" parent="InteractiveObjects" index="8" instance=ExtResource( 7 )]
+
+position = Vector2( 683.301, 550.915 )
+
+[node name="Chest2" parent="InteractiveObjects" index="9" instance=ExtResource( 8 )]
+
+position = Vector2( 640.881, 549.733 )
+
 [node name="BaldEnemy" parent="Enemies" index="0" instance=ExtResource( 11 )]
 
 position = Vector2( 111.743, 252.904 )
@@ -117,5 +125,10 @@ position = Vector2( 892.08, 527.557 )
 [node name="SaveNode" parent="SavePoints" index="0" instance=ExtResource( 16 )]
 
 position = Vector2( 562.427, 549.603 )
+
+[node name="LoadNode" parent="." index="7"]
+
+position = Vector2( 133.822, -56.4755 )
+_sections_unfolded = [ "Transform" ]
 
 

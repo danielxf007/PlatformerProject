@@ -1,4 +1,6 @@
 extends Node2D
+signal saved()
+signal saving()
 
 var on_screen = true
 
@@ -6,17 +8,19 @@ func save_game():
 	var save_game = File.new()
 	save_game.open("res://save/savegame.save", File.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	on_screen = false
 	for node in save_nodes:
 		var node_data = node.call("save")
 		save_game.store_line(to_json(node_data))
 	save_game.close()
-	on_screen = false
 	$AnimationPlayer.play("dissapear")
+	emit_signal("saving")
 	$Dissapear.start()
 
 
 
 func _on_Dissapear_timeout():
+	emit_signal("saved")
 	$Area2D.queue_free()
 	queue_free()
 
